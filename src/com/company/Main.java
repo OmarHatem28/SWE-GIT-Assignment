@@ -94,8 +94,34 @@ public class Main {
 
                 getAverage();
                 break;
+			case 19:
+				ShiftArray();
+			break;
         }
 
+    }
+	
+	private static void ShiftArray() {
+        Scanner scan = new Scanner(System.in);
+        System.out.append("Enter number of elements in array :");
+        int n = Integer.parseInt(scan.nextLine());
+        char[] array = new char[n];
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter element " + (i+1) + " : ");
+            String cr = scan.nextLine();
+            array[i] = cr.charAt(0);
+        }
+        /// Shifting by only 1 element to left.
+        char First_Element = array[0];
+        for(int i = 0 ; i < n-1 ; i++)
+            array[i] = array[i+1];
+        array[n-1] = First_Element;
+        
+        System.out.println("Number after Shifting...");
+        for (int i = 0; i < n; i++) {
+            System.out.print(array[i] + " ");
+        }
+        System.out.println();
     }
 
     private static void printMenu() {

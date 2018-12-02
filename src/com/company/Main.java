@@ -148,46 +148,46 @@ public class Main {
     }
     private static void find_Largest_prime()
     {
-        System.out.print("find_largest_prime number:\n");
-        if(isString)
-        {
-            System.out.println("i can't get prime values from string");
-            System.out.println("\n=======================================");
-            return;
-        }
-        ArrayList<Integer> prime_numbers=new ArrayList<Integer>();
-        boolean isPrime=false;
-        for(int i=0;i<arr.length;i++)
-        {
-            if(arr[i]==1)
-                isPrime=false;
-            for(int j=2;j<arr[i];j++)
-            {
-                if(arr[i]%j==0)
-                {
-                    isPrime=false;
-                    break;
-                }
-                isPrime=true;
-            }
-            if(isPrime)
-            {
-                prime_numbers.add(new Integer(arr[i]));
-            }
-        }
-        if(prime_numbers.isEmpty())
-        {
-            System.out.println("there is no prime numbers in array");
-            System.out.println("\n=======================================");
-            return;
-        }
-        int max=Integer.MIN_VALUE;
-        for(int i=0;i<prime_numbers.size();i++)
-        {
-            if(prime_numbers.get(i)>max)max=prime_numbers.get(i).intValue();
-        }
-        System.out.println("largest Prime :"+max);
-        System.out.println("\n=======================================");
+	System.out.print("find_largest_prime number:\n");
+	if(isString)
+    	{
+    		System.out.println("i can't get prime values from string");
+    		System.out.println("\n=======================================");
+    		return;
+    	}
+    	ArrayList<Integer> prime_numbers=new ArrayList<Integer>();
+    	boolean isPrime=false;
+    	for(int i=0;i<arr.length;i++)
+    	{
+    		if(arr[i]==2)
+    			isPrime=true;
+    		for(int j=2;j<arr[i];j++)
+    		{
+    			if(arr[i]%j==0)
+    			{
+    				isPrime=false;
+    				break;
+    			}
+    			isPrime=true;	
+    		}
+    		if(isPrime)
+    		{
+    			prime_numbers.add(new Integer(arr[i]));
+    		}
+    	}
+	if(prime_numbers.isEmpty())
+    	{
+    		System.out.println("there is no prime numbers in array");
+		System.out.println("\n=======================================");
+    		return;
+    	}
+    	int max=Integer.MIN_VALUE;
+    	for(int i=0;i<prime_numbers.size();i++)
+    	{
+    		if(prime_numbers.get(i)>max)max=prime_numbers.get(i).intValue();
+    	}
+    	System.out.println("largest Prime :"+max);
+	System.out.println("\n=======================================");
     }
 
     /**

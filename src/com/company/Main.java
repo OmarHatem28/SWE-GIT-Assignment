@@ -143,8 +143,8 @@ public class Main {
     	boolean isPrime=false;
     	for(int i=0;i<arr.length;i++)
     	{
-    		if(arr[i]==1)
-    			isPrime=false;
+    		if(arr[i]==2)
+    			isPrime=true;
     		for(int j=2;j<arr[i];j++)
     		{
     			if(arr[i]%j==0)

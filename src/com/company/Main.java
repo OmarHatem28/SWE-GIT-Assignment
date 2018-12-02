@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Map.Entry;
 import java.util.Scanner;
+import java.util.TreeSet;
+import java.util.Set;
 
 public class Main {
 
@@ -68,13 +70,24 @@ public class Main {
                 zeroIfNegative();
                 break;
             case 4:
-            	find_Largest_prime();
-            	break;
+                find_Largest_prime();
+                break;
             case 8:
                 countPrime();
                 break;
+
+            case 12:
+                get_max_3_numbers();
+
+            case 13:
+                get_TheMin_3Numbers();
+
+                break;
             case 14:
                 getAverage();
+                break;
+            case 11:
+                distinctArray();
                 break;
             case 18: // Execute All
                 // Add Your Function Here
@@ -83,12 +96,15 @@ public class Main {
                 mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
+
+                get_max_3_numbers();
+                getMedian();
+
                 find_Largest_prime();
-		getMedian();
-
+                get_TheMin_3Numbers();
                 GetSmallestPrime();
-
                 getAverage();
+                distinctArray();
                 break;
         }
 
@@ -126,11 +142,11 @@ public class Main {
             return;
         }
         for (int i = 0; i < size; i++) {
-            System.out.print(arr[i] < 0 ? 0 : arr[i] + " ");
+            System.out.print((arr[i] < 0 ? 0 : arr[i]) + " ");
         }
         System.out.println("\n=======================================");
     }
-   private static void find_Largest_prime()
+    private static void find_Largest_prime()
     {
 	System.out.print("find_largest_prime number:\n");
 	if(isString)
@@ -355,35 +371,127 @@ public class Main {
         System.out.println("\n=======================================");
     }
 
-  public static void getMedian(){
-			
-		System.out.println("Get median : \n ");
-		if(isString)
-	{
- 		System.out.println("The function get median doesn't work on strings");
- 		System.out.println("\n=======================================");
- 		return;
- 	}
-	        int[] numArray;
-		    numArray = Arrays.copyOf(arr, size);
-	        Arrays.sort(numArray);
-	        double median;
-	        if (numArray.length % 2 == 0) {
-	            median = ((double) numArray[numArray.length / 2] + (double) numArray[numArray.length / 2 - 1]) / 2;
-	            System.out.println("the median is "+median);
-	        }
-	        else {
-	            median = (double) numArray[numArray.length / 2];
-	            System.out.println("the median is "+median);
-	        }
-	System.out.println("\n=======================================");	
-	}
+
+    public static void get_max_3_numbers() {
+
+        if ( isString ){
+            System.out.println("Get The Minimum 3 Numbers!!");
+            System.out.print("Can't Works With String");
+            System.out.println("\n=======================================");
+            return;
+        }
+        if(arr.length < 3)
+        {
+            System.out.println("Get The Minimum 3 Numbers!!");
+            System.out.print("Can't Works on less than 3 numbers");
+            System.out.println("\n=======================================");
+            return;
+        }
+
+        int c=0;
+        int max1=arr[0];
+        int max2=arr[0];
+        int max3=arr[0];
+        while (c < 3) {
+            for (int i = 0; i < arr.length; i++) {
+                if (c == 0) {
+                    if (max1 < arr[i]) {
+                        max1 = arr[i];
+                    }
+                } else if (c == 1) {
+                    if (max2 < arr[i] && max1 != arr[i]) {
+                        max2 = arr[i];
+                    }
+                } else if (c == 2) {
+                    if (max3 < arr[i] && max1 != arr[i] && max2 != arr[i]) {
+                        max3 = arr[i];
+                    }
+                }
+
+            }
+            c++;
+        }
+        System.out.println("the max 3 numbers are:");
+
+        System.out.println(max1 + "  " + max2 + "  " + max3);
+        System.out.println("\n=======================================");
+
+    }
+
+
+    public static void getMedian(){
+
+        System.out.println("Get median : \n ");
+        if(isString)
+        {
+            System.out.println("The function get median doesn't work on strings");
+            System.out.println("\n=======================================");
+            return;
+        }
+        int[] numArray;
+        numArray = Arrays.copyOf(arr, size);
+        Arrays.sort(numArray);
+        double median;
+        if (numArray.length % 2 == 0) {
+            median = ((double) numArray[numArray.length / 2] + (double) numArray[numArray.length / 2 - 1]) / 2;
+            System.out.println("the median is "+median);
+        }
+        else {
+
+            median = numArray[numArray.length / 2];
+            System.out.println("the median is "+median);
+        }
+        System.out.println("\n=======================================");
+    }
+
+    private static void distinctArray ()
+    {
+        System.out.print("return the distinct values from array of numbers:\n");
+        if(isString)
+        {
+            System.out.println("The function distinctArray doesn't work on strings");
+            System.out.println("\n=======================================");
+            return;
+        }
+        Set<Integer> uniqKeys = new TreeSet<Integer>();
+        for(int x : arr) {
+            uniqKeys.add(x);}
+        System.out.println("uniqKeys: " + uniqKeys);
+    }
+
+
+
+
+    private static void  get_TheMin_3Numbers()
+    {
+        if ( isString ){
+            System.out.println("Get The Minimum 3 Numbers!!");
+            System.out.print("Can't Works With String");
+            System.out.println("\n=======================================");
+            return;
+        }
+        if(arr.length < 3)
+        {
+            System.out.println("Get The Minimum 3 Numbers!!");
+            System.out.print("Can't Works on less than 3 numbers");
+            System.out.println("\n=======================================");
+            return;
+        }
+
+        int[]arr1 = new int[arr.length];
+        for(int i = 0; i < arr.length; i++)
+        {
+            arr1[i] = arr[i];
+        }
+        Arrays.sort(arr1);
+        System.out.print("The Minimum 3 Numbers: ");
+        for(int i = 0; i < 3; i++)
+        {
+            System.out.print(arr1[i] + " ");
+        }
+        System.out.println("\n=======================================");
+    }
 
 
 
 }
-
-
-
-}
-

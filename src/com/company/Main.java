@@ -53,6 +53,9 @@ public class Main {
             case 1:
                 mostRepeatedValue();
                 break;
+		case 2:
+                	sorting();
+                break;
             case 5:
                 GetSmallestPrime();
                 break;
@@ -96,7 +99,7 @@ public class Main {
                 mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
-
+		sorting();
                 get_max_3_numbers();
                 getMedian();
 
@@ -146,6 +149,37 @@ public class Main {
         }
         System.out.println("\n=======================================");
     }
+	
+public static void sorting() 
+  {	
+    if ( isString ){
+            System.out.print("Sorting the array can't Works With String");
+            System.out.println("\n=======================================");
+            return;
+    }
+	int [] sortedArr = arr;
+    System.out.println("\nSorting the array : ");
+		int n=arr.length;
+		int temp=0;
+		for(int i=0;i<n-1;i++) {
+			for(int j=0;j<n-i-1;j++) {
+			if(sortedArr[j]<sortedArr[j+1]) {
+				
+				temp=sortedArr[j];
+				sortedArr[j]=sortedArr[j+1];
+				sortedArr[j+1]=temp;
+			    }
+			     }
+			       }
+		for (int i=0;i<n;i++) {
+			System.out.print(sortedArr[i]+"  ");
+		}
+        System.out.println("\n=======================================\n");
+		
+		
+  
+} 
+	
     private static void find_Largest_prime()
     {
 	System.out.print("find_largest_prime number:\n");

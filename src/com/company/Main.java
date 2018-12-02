@@ -53,13 +53,15 @@ public class Main {
             case 1:
                 mostRepeatedValue();
                 break;
+            case 2:
+                sorting();
+                break;
             case 5:
                 GetSmallestPrime();
                 break;
             case 7:
                 printCheckSorted();
                 break;
-
             case 9:
                 reverseArray();
                 break;
@@ -75,13 +77,11 @@ public class Main {
             case 8:
                 countPrime();
                 break;
-
             case 12:
                 get_max_3_numbers();
-
+                break;
             case 13:
                 get_TheMin_3Numbers();
-
                 break;
             case 14:
                 getAverage();
@@ -92,14 +92,13 @@ public class Main {
             case 18: // Execute All
                 // Add Your Function Here
                 reverseArray();
+                sorting();
                 printCheckSorted();
                 mostRepeatedValue();
                 zeroIfNegative();
                 countPrime();
-
                 get_max_3_numbers();
                 getMedian();
-
                 find_Largest_prime();
                 get_TheMin_3Numbers();
                 GetSmallestPrime();
@@ -491,7 +490,33 @@ public class Main {
         }
         System.out.println("\n=======================================");
     }
+    
+  public static void sorting() 
+  {	
+    if ( isString ){
+            System.out.print("Sorting the array can't Works With String");
+            System.out.println("\n=======================================");
+            return;
+    }
+    System.out.println("\nSorting the array : ");
+		int n=arr.length;
+		int temp=0;
+		for(int i=0;i<n-1;i++) {
+			for(int j=0;j<n-i-1;j++) {
+			if(arr[j]<arr[j+1]) {
+				
+				temp=arr[j];
+				arr[j]=arr[j+1];
+				arr[j+1]=temp;
+			    }
+			     }
+			       }
+		for (int i=0;i<n;i++) {
+			System.out.print(arr[i]+"  ");
+		}
 
-
-
+       System.out.println("\n=======================================\n");
+		
+		}
+  
 }
